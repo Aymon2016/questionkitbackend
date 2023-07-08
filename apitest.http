@@ -1,0 +1,17 @@
+//user endpoint
+POST http://localhost:8000/api/v1/questions
+Content-Type: application/json
+
+{
+    "serial":"1",
+    "question": "whats your father name",
+    "classes": "12",
+    "bookName": "Bangla_2st_paper",
+    "chapter":"2",
+    "type":"hard",
+    "answer":"option_d",
+    "option_a":"korim",
+    "option_b":"salam",
+    "option_c":"borkot",
+    "option_d":"aklas"
+}
