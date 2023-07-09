@@ -3,10 +3,6 @@ const validator = require('validator')
 const validate = user => {
     let error = {}
 
-    if (!user.userID) {
-        error.userID = 'Please Provide Your userID'
-    }
-
     if (!user.name) {
         error.name = 'Please Provide Your Name'
     }
@@ -16,17 +12,28 @@ const validate = user => {
     } else if (!validator.isEmail(user.email)) {
         error.email = 'Please Provide a Valid Email'
     }
-
+    if (!user.instituteName) {
+        error.instituteName = 'Please Provide Your instituteName'
+    }
+    if (!user.ipAddress) {
+        error.ipAddress = 'Please Provide Your ipAddress'
+    }
+    if (!user.service) {
+        error.service = 'Please Provide Your service'
+    }
+    if (!user.status) {
+        error.status = 'Please Provide Your status'
+    }
+    if (!user.role) {
+        error.role = 'Please Provide Your role'
+    }
+    if (!user.timestamp) {
+        error.timestamp = 'Please Provide Your timestamp'
+    }
     if (!user.password) {
         error.password = 'Please Provide a Password'
-    } else if (user.password.length < 6) {
-        error.password = 'Password Must be Greater or Equal 6 Character'
-    }
-
-    if (!user.confirmPassword) {
-        error.confirmPassword = 'Please Provide Confirmation Password'
-    } else if (user.password !== user.confirmPassword) {
-        error.confirmPassword = 'Password Doesn\'t Match'
+    } else if (user.password.length < 8) {
+        error.password = 'Password Must be Greater or Equal 8 Character'
     }
 
     return {

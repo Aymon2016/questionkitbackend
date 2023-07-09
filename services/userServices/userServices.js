@@ -3,7 +3,7 @@ const User = require('./userconstructor')
 
 
 
-const { readfile, writeFile } = require('../../utilis/utilis')
+const { readfileUser, writeFileUser } = require('../../utilis/utilis')
 
 const users = Symbol('users')
 
@@ -11,23 +11,26 @@ class UserCollection {
 
     constructor() {
         (async function () {
-            const data = await readfile()
+            const data = await readfileUser()
             this[users] = data;
         }.call(this))
 
 
     }
     /**
-     * @param {string} userID
-     * @param {string} name 
+    * @param {string} name
      * @param {string} email
-     * @param {string} role
+     * @param {string} instituteName 
+     * @param {string} ipAddress 
+     * @param {string} service
+     * @param {string} status
+     * @param {string} role 
      * @param {password} password
      */
-    create(userID, name, email, password, role) {
-        const user = new User(userID, name, email, password, role)
+    create(name, email, instituteName, ipAddress, service, status, role, password) {
+        const user = new User(name, email, instituteName, ipAddress, service, status, role, password)
         this[users].push(user)
-        writeFile(this[users])
+        writeFileUser(this[users])
         return user
     }
     /**
@@ -50,32 +53,47 @@ class UserCollection {
         * find user by id
         * @param {string} email
         */
-    findById(userID) {
+    findById(id) {
 
 
         const oneUser = this[users].filter(
             /**
-             * @param {string} userID
+             * @param {string} id
              */
-            (user) => user.userID === userID
+            (user) => user.id === id
         )
 
         return oneUser;
     }
+    updateById(id, statuse) {
+        const index = this[users].findIndex((user) => user.id === id);
 
-    deleteById(userid) {
+        if (index === -1) {
+            return null; // User not found
+        }
+
+        // Update specific data fields
+        const userToUpdate = this[users][index];
+        userToUpdate.status = statuse; // Update the 'status' field
+
+        writeFileUser(this[users]); // Save the entire user collection
+
+        return userToUpdate;
+    }
+
+    deleteById(id) {
 
         const index = this[users].findIndex(
             /**
              * @param {user} user
              */
-            (user) => user.id === userid
+            (user) => user.id === id
         )
         if (index === -1) {
             return false;
         } else {
             this[users].splice(index, 1)
-            writeFile(this[users])
+            writeFileUser(this[users])
             return true;
         }
 

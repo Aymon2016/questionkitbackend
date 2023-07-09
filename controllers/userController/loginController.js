@@ -7,41 +7,11 @@ const jwt = require('jsonwebtoken')
 
 const loginController = async (req, res) => {
 
-    console.log(req.cookies)
     const secretKey = process.env.SECRET_KEY;
-
-    /*=============================================
-    =            validation section           =
-    =============================================*/
 
     let { email, password } = JSON.parse(req.body.body)
 
-
     let validate = loginvalidator({ email, password })
-
-    /*=====  End of Section comment block  ======*/
-
-
-
-    /*=============================================
-    =            third party service            =
-    =============================================*/
-
-
-    /* third party sevices  Call */
-
-
-
-    /*=====  End of third party service  ======*/
-
-
-
-    /*=============================================
-    =            Bussiness service           =
-    =============================================*/
-
-
-
     if (!validate.isValid) {
         return res.status(400).json(validate.error)
     } else {
@@ -65,7 +35,13 @@ const loginController = async (req, res) => {
                         id: getuser.id,
                         name: getuser.name,
                         email: getuser.email,
+                        instituteName: getuser.instituteName,
+                        service: getuser.service,
+                        status: getuser.status,
                         role: getuser.role,
+                        ipAddress: getuser.ipAddress,
+                        timestamp: getuser.timestamp
+
                     }, secretKey, { expiresIn: '2h' })
 
 
@@ -75,7 +51,17 @@ const loginController = async (req, res) => {
                         secure: true, // 
                     }).json({
                         message: 'Login Successful',
-                        user: JSON.stringify({ id: getuser.id, name: getuser.name, email: getuser.email, role: getuser.role }),
+                        user: JSON.stringify({
+                            id: getuser.id,
+                            name: getuser.name,
+                            email: getuser.email,
+                            instituteName: getuser.instituteName,
+                            service: getuser.service,
+                            status: getuser.status,
+                            role: getuser.role,
+                            ipAddress: getuser.ipAddress,
+                            timestamp: getuser.timestamp
+                        }),
                         token: `Bearer ${token}`
                     })
 

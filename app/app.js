@@ -2,7 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
 const { globalErrorHandler } = require('../middlewares/errorHandler/errorhandler')
-// const userRouter = require('../routes/userRouter/index')
+const userRouter = require('../routes/userRouter/index')
 const questionRouter = require('../routes/questionRouter/index')
 
 
@@ -20,7 +20,7 @@ app.use((req, res, next) => {
     res.header('Access-Control-Allow-Credentials', 'true'); // Allow credentials
     next();
 });
-// app.use('/api/v1', userRouter)
+app.use('/api/v1', userRouter)
 app.use('/api/v1', questionRouter)
 
 
