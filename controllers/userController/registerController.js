@@ -6,7 +6,8 @@ const { getFullDate } = require('../../utilis/getdate')
 
 const registerController = async (req, res) => {
 
-    let { name, email, instituteName, ipAddress, service, status, role, password } = JSON.parse(req.body.body)
+    // let { name, email, instituteName, ipAddress, service, status, role, password } = JSON.parse(req.body.body)
+    let { name, email, instituteName, ipAddress, service, status, role, password } = req.body
     const timestamp = await getFullDate();
 
     let validate = registerValidator({ name, email, instituteName, ipAddress, service, status, role, password, timestamp })

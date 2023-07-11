@@ -1,4 +1,4 @@
-
+const shortid = require('shortid')
 
 class Question {
 
@@ -18,6 +18,7 @@ class Question {
      */
 
     constructor(serial, question, classes, bookName, chapter, type, answer, option_a, option_b, option_c, option_d) {
+        this.id = shortid.generate()
         this.serial = serial;
         this.question = question;
         this.classes = classes;

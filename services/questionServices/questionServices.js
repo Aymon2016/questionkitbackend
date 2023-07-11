@@ -21,6 +21,33 @@ class QuestionCollection {
         return oneQuestion;
     }
 
+    async getAllQuestions(filePath) {
+        const data = await this.loadDataFromFile(filePath);
+        return data;
+    }
+
+    async findOneQuestion(Id, filePath) {
+        const data = await this.loadDataFromFile(filePath);
+
+        const foundQuestion = data.find(question => question.id === Id);
+
+        return foundQuestion;
+    }
+
+    async deleteQuestion(questionId, filePath) {
+        const data = await this.loadDataFromFile(filePath);
+        const index = data.findIndex(
+            (user) => user.id === questionId
+        )
+        if (index === -1) {
+            return false;
+        } else {
+            data.splice(index, 1)
+            await this.writeDataToFile(filePath, data);
+            return true;
+        }
+    }
+
     async writeDataToFile(filePath, data) {
         try {
             await writeFile(filePath, data);

@@ -1,4 +1,4 @@
-//user endpoint
+//question create
 POST http://localhost:8000/api/v1/questions
 Content-Type: application/json
 
@@ -15,11 +15,59 @@ Content-Type: application/json
     "option_c":"borkot",
     "option_d":"aklas"
 }
+
+//get all question
+###
+GET http://localhost:8000/api/v1/questions/12
+
+//get single question
+###
+GET http://localhost:8000/api/v1/questions/12/11MbjENI7
+//delete single question
+###
+DELETE  http://localhost:8000/api/v1/questions/12/11MbjENI7
+//create user
+###
+POST http://localhost:8000/api/v1/users/register
+Content-Type: application/json
+
+{
+    "name":"aymon",
+    "email":"aymon6@gmail.com",
+    "password":"22883377",
+    "instituteName":"ideal cosing center",
+    "service":"1",
+    "status":"unblock",
+    "role":"Users",
+    "ipAddress":"110112.00"
+}
+
+//block user
 ###
 
 PATCH  http://localhost:8000/api/v1/users/block/-RzHpxdlm
 ###
-
+//delete user
 DELETE   http://localhost:8000/api/v1/users/5jhWeNebF
 
+// update user
+###
+PATCH  http://localhost:8000/api/v1/users/6F_lXVz-I
+Content-Type: application/json
 
+{
+    
+    "name":"",
+    "email":"",
+    "password":"",
+    "institueName":"",
+    "service":"",
+    "role":"",
+    "ipAddress":""
+}
+// get a single user
+###
+GET http://localhost:8000/api/v1/users/NRbScTAS_
+// get all user
+###
+GET http://localhost:8000/api/v1/users

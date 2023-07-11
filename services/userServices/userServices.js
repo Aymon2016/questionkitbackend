@@ -33,11 +33,16 @@ class UserCollection {
         writeFileUser(this[users])
         return user
     }
+
+    async find() {
+        return [...this[users]];
+    }
+
     /**
      * find user by email
      * @param {string} email
      */
-    findByEmail(email) {
+    async findByEmail(email) {
 
 
         const userEmail = this[users].filter(
@@ -53,7 +58,7 @@ class UserCollection {
         * find user by id
         * @param {string} email
         */
-    findById(id) {
+    async findById(id) {
 
 
         const oneUser = this[users].filter(
@@ -65,23 +70,37 @@ class UserCollection {
 
         return oneUser;
     }
-    updateById(id, statuse) {
+    async updateById(id, statuse) {
         const index = this[users].findIndex((user) => user.id === id);
 
         if (index === -1) {
-            return null; // User not found
+            return null;
         }
 
-        // Update specific data fields
-        const userToUpdate = this[users][index];
-        userToUpdate.status = statuse; // Update the 'status' field
 
-        writeFileUser(this[users]); // Save the entire user collection
+        const userToUpdate = this[users][index];
+        userToUpdate.status = statuse;
+
+        writeFileUser(this[users]);
 
         return userToUpdate;
     }
 
-    deleteById(id) {
+    async updateUser(userId, updatedFields) {
+        const index = this[users].findIndex(user => user.id === userId);
+        if (index !== -1) {
+            Object.keys(updatedFields).forEach(field => {
+                if (this[users][index].hasOwnProperty(field)) {
+                    this[users][index][field] = updatedFields[field];
+                }
+            });
+            writeFileUser(this[users]);
+            return true;
+        }
+        return false;
+    }
+
+    async deleteById(id) {
 
         const index = this[users].findIndex(
             /**
