@@ -8,8 +8,8 @@ const fs = require('fs');
 
 const createQuestionController = async (req, res) => {
 
-    let { serial, question, classes, bookName, chapter, type, answer, option_a, option_b, option_c, option_d } = req.body
-    // let { serial, question, classes, bookName, chapter, type, answer, option_a, option_b, option_c, option_d } = JSON.parse(req.body.body)
+    // let { serial, question, classes, bookName, chapter, type, answer, option_a, option_b, option_c, option_d } = req.body
+    let { serial, question, classes, bookName, chapter, type, answer, option_a, option_b, option_c, option_d } = JSON.parse(req.body.body)
 
 
     let validate = createQuestionValidator({ serial, question, classes, bookName, chapter, type, answer, option_a, option_b, option_c, option_d })
