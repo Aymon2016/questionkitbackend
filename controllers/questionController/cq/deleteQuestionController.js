@@ -1,5 +1,5 @@
 
-const questionCollection = require('../../services/questionServices/questionServices')
+const questionCollection = require('../../../services/questionServices/cq/questionServices')
 const path = require('path')
 const fs = require('fs');
 
@@ -8,7 +8,7 @@ const deleteQuestionController = async (req, res) => {
     const { classes, id } = req.params;
     try {
         if (classes === '6') {
-            const folderPath = 'db/class6'
+            const folderPath = 'db/cq/class6'
             const filePath = path.join(folderPath, 'class_6.json');
             const Question = await questionCollection.deleteQuestion(id, filePath)
             if (Question === false) {
@@ -18,7 +18,7 @@ const deleteQuestionController = async (req, res) => {
             return res.status(200).json({ message: "Question Deleted Successfull" });
         }
         if (classes === '7') {
-            const folderPath = 'db/class7'
+            const folderPath = 'db/cq/class7'
             const filePath = path.join(folderPath, 'class_7.json');
             const Question = await questionCollection.deleteQuestion(id, filePath)
             if (Question === false) {
@@ -28,7 +28,7 @@ const deleteQuestionController = async (req, res) => {
             return res.status(200).json({ message: "Question Deleted Successfull" });
         }
         if (classes === '8') {
-            const folderPath = 'db/class8'
+            const folderPath = 'db/cq/class8'
             const filePath = path.join(folderPath, 'class_8.json');
             const Question = await questionCollection.deleteQuestion(id, filePath)
             if (Question === false) {
@@ -39,7 +39,7 @@ const deleteQuestionController = async (req, res) => {
 
         }
         if (classes === '9' || classes === '10') {
-            const folderPath = 'db/class9or10'
+            const folderPath = 'db/cq/class9or10'
             const filePath = path.join(folderPath, 'class_9or10.json');
 
             const Question = await questionCollection.deleteQuestion(id, filePath)
@@ -51,7 +51,7 @@ const deleteQuestionController = async (req, res) => {
 
         }
         if (classes === '11' || classes === '12') {
-            const folderPath = 'db/class11or12'
+            const folderPath = 'db/cq/class11or12'
             const filePath = path.join(folderPath, 'class_11or12.json');
             console.log(classes, id)
             const Question = await questionCollection.deleteQuestion(id, filePath)

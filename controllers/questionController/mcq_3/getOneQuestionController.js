@@ -1,27 +1,27 @@
 
-const questionCollection = require('../../services/questionServices/questionServices')
+const questionCollection = require('../../../services/questionServices/mcq_3/questionServices')
 const path = require('path')
 const fs = require('fs');
 
-const getAllQuestionController = async (req, res) => {
+const getOneQuestionController = async (req, res) => {
 
-    const { classes } = req.params;
+    const { classes, id } = req.params;
     try {
         if (classes === '6') {
-            const folderPath = 'db/class6'
+            const folderPath = 'db/mcq_3/class6'
             const filePath = path.join(folderPath, 'class_6.json');
-            const Question = await questionCollection.getAllQuestions(filePath)
-            if (Question.length === 0) {
+            const Question = await questionCollection.findOneQuestion(id, filePath)
+            if (Question === undefined) {
                 return res.status(404).json({ message: "Question Not Found" });
             }
             /// baki sorting all filter add this 
             return res.status(200).json({ message: "Question Found", Question: Question });
         }
         if (classes === '7') {
-            const folderPath = 'db/class7'
+            const folderPath = 'db/mcq_3/class7'
             const filePath = path.join(folderPath, 'class_7.json');
-            const Question = await questionCollection.getAllQuestions(filePath)
-            if (Question.length === 0) {
+            const Question = await questionCollection.findOneQuestion(id, filePath)
+            if (Question === undefined) {
                 return res.status(404).json({ message: "Question Not Found" });
             }
             /// baki sorting all filter add this 
@@ -30,10 +30,10 @@ const getAllQuestionController = async (req, res) => {
 
         }
         if (classes === '8') {
-            const folderPath = 'db/class8'
+            const folderPath = 'db/mcq_3/class8'
             const filePath = path.join(folderPath, 'class_8.json');
-            const Question = await questionCollection.getAllQuestions(filePath)
-            if (Question.length === 0) {
+            const Question = await questionCollection.findOneQuestion(id, filePath)
+            if (Question === undefined) {
                 return res.status(404).json({ message: "Question Not Found" });
             }
             /// baki sorting all filter add this 
@@ -42,11 +42,11 @@ const getAllQuestionController = async (req, res) => {
 
         }
         if (classes === '9' || classes === '10') {
-            const folderPath = 'db/class9or10'
+            const folderPath = 'db/mcq_3/class9or10'
             const filePath = path.join(folderPath, 'class_9or10.json');
 
-            const Question = await questionCollection.getAllQuestions(filePath)
-            if (Question.length === 0) {
+            const Question = await questionCollection.findOneQuestion(id, filePath)
+            if (Question === undefined) {
                 return res.status(404).json({ message: "Question Not Found" });
             }
             /// baki sorting all filter add this 
@@ -54,12 +54,12 @@ const getAllQuestionController = async (req, res) => {
 
 
         }
-        if (classes === '1' || classes === '12') {
-            const folderPath = 'db/class11or12'
+        if (classes === '11' || classes === '12') {
+            const folderPath = 'db/mcq_3/class11or12'
             const filePath = path.join(folderPath, 'class_11or12.json');
-
-            const Question = await questionCollection.getAllQuestions(filePath)
-            if (Question.length === 0) {
+            console.log(classes, id)
+            const Question = await questionCollection.findOneQuestion(id, filePath)
+            if (Question === undefined) {
                 return res.status(404).json({ message: "Question Not Found" });
             }
             /// baki sorting all filter add this 
@@ -73,4 +73,4 @@ const getAllQuestionController = async (req, res) => {
     }
 
 };
-module.exports = getAllQuestionController
+module.exports = getOneQuestionController 

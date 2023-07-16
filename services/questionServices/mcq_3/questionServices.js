@@ -1,5 +1,5 @@
 const Question = require('./questionConstructure')
-const { readfile, writeFile } = require('../../utilis/utilis');
+const { readfile, writeFile } = require('../../../utilis/utilis');
 
 const questions = Symbol('questions');
 
@@ -8,9 +8,9 @@ class QuestionCollection {
         this[questions] = [];
     }
 
-    async create(serial, question, classes, bookName, chapter, type, answer, option_a, option_b, option_c, option_d, filePath) {
+    async create(serial, classes, bookName, chapter, type, image, question, question_i, question_ii, question_iii, option_a, option_b, option_c, option_d, answer, filePath) {
 
-        const oneQuestion = new Question(serial, question, classes, bookName, chapter, type, answer, option_a, option_b, option_c, option_d);
+        const oneQuestion = new Question(serial, classes, bookName, chapter, type, image, question, question_i, question_ii, question_iii, option_a, option_b, option_c, option_d, answer);
         this[questions].push(oneQuestion);
 
         const existingData = await this.loadDataFromFile(filePath); // Read existing data from the file

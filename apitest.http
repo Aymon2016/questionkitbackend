@@ -1,5 +1,13 @@
+
+// for user
+###
+GET http://localhost:8000/api/v1/question_paper/cq?classes="12"&bookName="Bangla_2st_paper"&chapter="2"
+###
+GET http://localhost:8000/api/v1/question_paper/mcq
+
 //question create
-POST http://localhost:8000/api/v1/questions
+###
+POST http://localhost:8000/api/v1/mcq_1/questions
 Content-Type: application/json
 
 {
@@ -18,14 +26,148 @@ Content-Type: application/json
 
 //get all question
 ###
-GET http://localhost:8000/api/v1/questions/12
+GET http://localhost:8000/api/v1/mcq_1/questions/12
 
 //get single question
 ###
-GET http://localhost:8000/api/v1/questions/12/11MbjENI7
+GET http://localhost:8000/api/v1/mcq_1/questions/12/d_LSuTEOI
 //delete single question
 ###
-DELETE  http://localhost:8000/api/v1/questions/12/11MbjENI7
+DELETE  http://localhost:8000/api/v1/mcq_1/questions/12/d_LSuTEOI
+//create user
+###
+
+//question create
+POST http://localhost:8000/api/v1/mcq_2/questions
+Content-Type: application/json
+
+{
+    "serial":"1",
+    "classes": "12",
+    "bookName": "Bangla_2st_paper",
+    "chapter":"2",
+    "type":"hard",
+    "question": "whats your father name",
+    "question_i":"korim",
+    "question_ii":"solim",
+    "question_iii":"ahmed",
+    "option_a":"i & ii",
+    "option_b":"i",
+    "option_c":"iii",
+    "option_d":"ii",
+    "answer":"option_a"
+}
+
+//get all question
+###
+GET http://localhost:8000/api/v1/mcq_2/questions/12
+
+//get single question
+###
+GET http://localhost:8000/api/v1/mcq_2/questions/12/78MWlMLAd
+//delete single question
+###
+DELETE  http://localhost:8000/api/v1/mcq_2/questions/12/78MWlMLAd
+//create user
+###
+
+//question create
+POST http://localhost:8000/api/v1/mcq_3/questions
+Content-Type: application/json
+
+{
+    "serial":"1",
+    "classes": "12",
+    "bookName": "Bangla_2st_paper",
+    "chapter":"2",
+    "type":"hard",
+    "image":"link",
+    "question": "whats your father name",
+    "question_i":"korim",
+    "question_ii":"solim",
+    "question_iii":"ahmed",
+    "option_a":"i & ii",
+    "option_b":"i",
+    "option_c":"iii",
+    "option_d":"ii",
+    "answer":"option_a"
+}
+
+//get all question
+###
+GET http://localhost:8000/api/v1/mcq_3/questions/12
+
+//get single question
+###
+GET http://localhost:8000/api/v1/mcq_3/questions/12/78MWlMLAd
+//delete single question
+###
+DELETE  http://localhost:8000/api/v1/mcq_3/questions/12/78MWlMLAd
+//create user
+###
+//question create
+POST http://localhost:8000/api/v1/mcq_4/questions
+Content-Type: application/json
+
+{
+    "serial":"1",
+    "classes": "12",
+    "bookName": "Bangla_2st_paper",
+    "chapter":"2",
+    "type":"hard",
+    "oddipok": "whats your father name",
+    "question": "whats your father name",
+    "option_a":"korim",
+    "option_b":"salam",
+    "option_c":"borkot",
+    "option_d":"aklas",
+    "answer":"option_d"
+}
+
+//get all question
+###
+GET http://localhost:8000/api/v1/mcq_4/questions/12
+
+//get single question
+###
+GET http://localhost:8000/api/v1/mcq_4/questions/12/Fe82WQCtQ
+//delete single question
+###
+DELETE  http://localhost:8000/api/v1/mcq_4/questions/12/Fe82WQCtQ
+//create user
+###
+
+//question create cq
+POST http://localhost:8000/api/v1/cq/questions
+Content-Type: application/json
+
+{
+    "serial":"1",
+    "oddipok": "whats your father name",
+    "classes": "12",
+    "bookName": "Bangla_2st_paper",
+    "chapter":"2",
+    "type":"hard",
+    "question_a":"whats your name",
+     "question_b":"whats your father name",
+   "question_c":"whats your mother name",
+     "question_d":"whats your gf name",
+    "answer_a":"aklas",
+    "answer_b":"aklas",
+    "answer_c":"aklas",
+    "answer_d":"aklas"
+}
+
+//get all question
+###
+GET http://localhost:8000/api/v1/cq/questions/12
+
+//get single question
+###
+GET http://localhost:8000/api/v1/cq/questions/12/g1GuRGN0I
+//delete single question
+###
+DELETE  http://localhost:8000/api/v1/cq/questions/12/g1GuRGN0I
 //create user
 ###
 POST http://localhost:8000/api/v1/users/register
