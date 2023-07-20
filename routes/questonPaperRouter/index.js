@@ -2,8 +2,8 @@ const express = require("express");
 
 // for mcq
 
-const questionPaperCq = require('../../controllers/questionPaper/cq')
-const questionPaperMcq = require("../../controllers/questionPaper/mcq");
+const questionPaperCq = require('../../controllers/getQuestionPaper/cq')
+const questionPaperMcq = require("../../controllers/getQuestionPaper/mcq");
 
 
 

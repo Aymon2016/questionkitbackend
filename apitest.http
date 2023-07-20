@@ -1,7 +1,10 @@
 
 // for user
 ###
-GET http://localhost:8000/api/v1/question_paper/cq?classes="12"&bookName="Bangla_2st_paper"&chapter="2"
+GET http://localhost:8000/api/v1/question_paper/cq?classes=12&bookName=Bangla_1st_paper
+###
+GET http://localhost:8000/api/v1/question_paper/mcq?classes=6&bookName=Bangla_1st_paper
+
 ###
 GET http://localhost:8000/api/v1/question_paper/mcq
 
@@ -13,8 +16,8 @@ Content-Type: application/json
 {
     "serial":"1",
     "question": "whats your father name",
-    "classes": "12",
-    "bookName": "Bangla_2st_paper",
+    "classes": "6",
+    "bookName": "Bangla_1st_paper",
     "chapter":"2",
     "type":"hard",
     "answer":"option_d",
@@ -43,8 +46,8 @@ Content-Type: application/json
 
 {
     "serial":"1",
-    "classes": "12",
-    "bookName": "Bangla_2st_paper",
+    "classes": "6",
+    "bookName": "Bangla_1st_paper",
     "chapter":"2",
     "type":"hard",
     "question": "whats your father name",
@@ -77,8 +80,8 @@ Content-Type: application/json
 
 {
     "serial":"1",
-    "classes": "12",
-    "bookName": "Bangla_2st_paper",
+    "classes": "6",
+    "bookName": "Bangla_1st_paper",
     "chapter":"2",
     "type":"hard",
     "image":"link",
@@ -111,8 +114,8 @@ Content-Type: application/json
 
 {
     "serial":"1",
-    "classes": "12",
-    "bookName": "Bangla_2st_paper",
+    "classes": "6",
+    "bookName": "Bangla_1st_paper",
     "chapter":"2",
     "type":"hard",
     "oddipok": "whats your father name",
@@ -145,8 +148,8 @@ Content-Type: application/json
     "serial":"1",
     "oddipok": "whats your father name",
     "classes": "12",
-    "bookName": "Bangla_2st_paper",
-    "chapter":"2",
+    "bookName": "Bangla_1st_paper",
+    "chapter":"3",
     "type":"hard",
     "question_a":"whats your name",
      "question_b":"whats your father name",

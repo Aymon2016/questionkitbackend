@@ -62,7 +62,7 @@ class QuestionCollection {
         try {
             const data = await readfile(filePath);
 
-            return data;
+            return data
         } catch (error) {
 
             return [];
