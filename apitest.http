@@ -3,7 +3,7 @@
 ###
 GET http://localhost:8000/api/v1/question_paper/cq?classes=12&bookName=Bangla_1st_paper
 ###
-GET http://localhost:8000/api/v1/question_paper/mcq?classes=6&bookName=Bangla_1st_paper
+GET http://localhost:8000/api/v1/question_paper/mcq?classes=12&bookName=Bangla_1st_paper
 
 ###
 GET http://localhost:8000/api/v1/question_paper/mcq
@@ -16,7 +16,7 @@ Content-Type: application/json
 {
     "serial":"1",
     "question": "whats your father name",
-    "classes": "6",
+    "classes": "12",
     "bookName": "Bangla_1st_paper",
     "chapter":"2",
     "type":"hard",

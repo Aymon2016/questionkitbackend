@@ -9,7 +9,7 @@ const CqQuestionPaper = async (req, res) => {
     const bookName = req.query.bookName
     const chapter = req.query.chapter || null
 
-    console.log(classes, bookName, chapter)
+
     try {
         if (classes === '6') {
             const folderPath = 'db/cq/class6'
@@ -101,15 +101,17 @@ const CqQuestionPaper = async (req, res) => {
 
             const QuestionAll = await questionCollection.getAllQuestions(filePath);
 
+
             // Filter questions based on bookName
 
-            let questionBook = QuestionAll.filter((question) => question.bookName === bookName);
+            let questionBook = await QuestionAll.filter((question) => question.bookName === bookName);
 
-            if (chapter !== null) {
+            if (chapter !== 'null') {
                 // If chapter is provided, further filter questions based on chapter
-                let questionFiltered = questionBook.filter((question) => question.chapter === chapter);
+                let questionFiltered = await questionBook.filter((question) => question.chapter === chapter);
                 questionBook = questionFiltered;
             }
+
 
             const question11 = await getRandomObjectsFromArray(questionBook, 11)
 
